@@ -276,8 +276,15 @@
 			}
 		};
 		const handleKeydown = (e: KeyboardEvent) => {
-			// Ignore ESC if lightbox is open or was just closed (same ESC keypress)
-			if (e.key === 'Escape' && !lightboxOpen && Date.now() - lightboxClosedAt > 300) {
+			const isBackKey = e.key === 'Escape' || e.key === 'Backspace';
+			if (!isBackKey) return;
+			// Close lightbox if open (Backspace; Escape is handled by PhotoSwipe)
+			if (lightboxOpen && pswpInstance) {
+				pswpInstance.close();
+				return;
+			}
+			// Ignore if lightbox was just closed (same keypress would trigger both)
+			if (Date.now() - lightboxClosedAt > 300) {
 				goto('/');
 			}
 		};

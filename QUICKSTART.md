@@ -47,3 +47,14 @@ Open [localhost:5173](http://localhost:5173) in your browser.
 - **Add captions**: Put a `photogen.txt` file in each album folder (see `sample/source/antarctica/photogen.txt`).
 - **Album descriptions**: Edit `config/descriptions.txt` — one line per album: `slug` then description.
 - **Build for deployment**: `make web-npm-build` — output is in `web/build/`.
+
+---
+
+## Wishlist
+
+Sub-albums
+
+Album description (supports html)
+create meta.yaml automatically - get captions from iptc.
+
+Don't recreate existing photos based on hash of folder contents.
