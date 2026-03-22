@@ -8,19 +8,6 @@ bases:
   sample: sample/source
 
 albums:
-  - slug: the-way
-    name: The Way
-    base: sample
-    source: theway
-    cover: 2024-The-Way-14.jpg
-
-  - slug: uganda
-    name: Uganda
-    base: sample
-    source: uganda
-    cover: img_840_d.jpg
-    manual_sort_order: true
-
   - slug: antarctica
     name: Antarctica
     base: sample
