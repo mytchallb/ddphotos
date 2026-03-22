@@ -3,11 +3,18 @@
 	import { onMount } from 'svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 
+	
+
 	let { children } = $props();
 
 	onMount(() => {
 		// Set initial theme on mount
 		document.documentElement.setAttribute('data-theme', $theme);
+
+		// on mouse right click console log the event
+		document.addEventListener('contextmenu', (event) => {
+			event.preventDefault();
+		});
 	});
 
 	function ordinal(n: number): string {
@@ -38,7 +45,7 @@
 	</div>
 	{@render children()}
 	<footer>
-		<div>Copyright © {import.meta.env.VITE_COPYRIGHT_YEAR}-{new Date().getFullYear()}. {import.meta.env.VITE_COPYRIGHT_OWNER}.</div>
+		<div>All photos Copyright © {import.meta.env.VITE_COPYRIGHT_YEAR}-{new Date().getFullYear()}. {import.meta.env.VITE_COPYRIGHT_OWNER}.</div>
 		<div class="built-with">Built {builtOn} with <a href="https://github.com/dougdonohoe/ddphotos" target="_blank" rel="noopener">ddphotos</a>.</div>
 	</footer>
 </div>
@@ -99,9 +106,11 @@
 		color: var(--text-muted);
 		font-size: 0.85rem;
 	}
+	
 
 	.built-with {
 		margin-top: 0.35rem;
+		display: none;
 	}
 
 	:global(:root) .built-with a {
